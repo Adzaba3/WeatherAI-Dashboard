@@ -25,13 +25,13 @@ export function HourlyChart({ hourly }: Props) {
   }));
 
   return (
-    <div className="rounded-3xl bg-white/4 border border-white/8 p-5">
+    <div className="rounded-3xl border border-white/8 bg-white/4 p-4 sm:p-5">
       <h3 className="font-display font-bold text-sm uppercase tracking-widest text-slate-500 mb-5">
         24-Hour Temperature
       </h3>
-      <div className="h-44">
+      <div className="h-52 min-w-0 sm:h-44">
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={data} margin={{ top: 5, right: 5, left: -20, bottom: 0 }}>
+          <AreaChart data={data} margin={{ top: 5, right: 2, left: -28, bottom: 0 }}>
             <defs>
               <linearGradient id="tempGrad" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#00e5ff" stopOpacity={0.3} />

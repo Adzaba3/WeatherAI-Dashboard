@@ -70,7 +70,7 @@ export function UsagePanel() {
 
   return (
     <div
-      className="h-10 rounded-2xl bg-white/4 border border-white/8 px-3 flex items-center gap-3"
+      className="flex h-10 w-full items-center gap-3 rounded-2xl border border-white/8 bg-white/4 px-3 sm:w-auto"
       title={resetLabel}
     >
       <div className="flex items-center gap-1.5 shrink-0">
@@ -99,7 +99,7 @@ export function UsagePanel() {
         )}
       </div>
 
-      <div className="lg:hidden text-[10px] text-slate-400 font-body whitespace-nowrap">
+      <div className="ml-auto text-[10px] text-slate-400 font-body whitespace-nowrap lg:hidden">
         {effectiveReqUsed.toLocaleString()} / {effectiveReqLimit > 0 ? effectiveReqLimit.toLocaleString() : '—'}
       </div>
     </div>

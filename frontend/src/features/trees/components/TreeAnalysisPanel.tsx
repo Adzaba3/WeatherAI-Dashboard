@@ -43,7 +43,7 @@ function AnalysisResults({ result }: { result: TreeAnalysisResult }) {
   return (
     <div className="space-y-4 mt-4">
       {/* Stats row */}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         {[
           { label: 'Trees', value: result.total_tree_count },
           { label: 'Coverage', value: `${result.canopy_coverage_pct.toFixed(1)}%` },
@@ -68,7 +68,7 @@ function AnalysisResults({ result }: { result: TreeAnalysisResult }) {
 
       {/* Species */}
       {result.tree_species_guess && (
-        <div className="flex items-center gap-2 p-3 rounded-xl bg-aurora-teal/10 border border-aurora-teal/20">
+        <div className="flex items-start gap-2 rounded-xl border border-aurora-teal/20 bg-aurora-teal/10 p-3">
           <TreePine size={14} className="text-aurora-teal shrink-0" />
           <span className="text-sm text-slate-300 font-body italic">{result.tree_species_guess}</span>
         </div>
@@ -157,7 +157,7 @@ export function TreeAnalysisPanel() {
       {/* Quota */}
       {quota && (
         <div className="p-4 rounded-2xl bg-white/4 border border-white/8">
-          <div className="flex items-center justify-between mb-2">
+          <div className="mb-2 flex items-center justify-between gap-3">
             <span className="text-xs font-display font-bold uppercase tracking-widest text-slate-500">
               Analysis Quota
             </span>
@@ -174,7 +174,7 @@ export function TreeAnalysisPanel() {
         onDrop={handleDrop}
         onClick={() => fileRef.current?.click()}
         className={clsx(
-          'rounded-2xl border-2 border-dashed p-8 text-center cursor-pointer transition-all',
+          'cursor-pointer rounded-2xl border-2 border-dashed p-5 text-center transition-all sm:p-8',
           dragOver
             ? 'border-aurora-cyan/60 bg-aurora-cyan/5'
             : preview
@@ -200,7 +200,7 @@ export function TreeAnalysisPanel() {
 
       {/* Optional fields */}
       {preview && (
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <input
             type="text"
             placeholder="Farmer ID (optional)"

@@ -13,7 +13,7 @@ export function ForecastStrip({ daily }: Props) {
   const days = daily.slice(0, 7);
 
   return (
-    <div className="rounded-3xl bg-white/4 border border-white/8 p-5">
+    <div className="rounded-3xl border border-white/8 bg-white/4 p-4 sm:p-5">
       <h3 className="font-display font-bold text-sm uppercase tracking-widest text-slate-500 mb-4">
         7-Day Forecast
       </h3>
@@ -25,13 +25,13 @@ export function ForecastStrip({ daily }: Props) {
           return (
             <div
               key={day.dt}
-              className="flex items-center gap-3 py-2.5 px-3 rounded-xl hover:bg-white/5 transition-colors group"
+              className="flex min-w-0 items-center gap-2 rounded-xl px-2 py-2.5 transition-colors hover:bg-white/5 sm:gap-3 sm:px-3"
             >
-              <span className="text-sm font-display font-semibold text-slate-400 w-10 shrink-0">
+              <span className="w-9 shrink-0 text-xs font-display font-semibold text-slate-400 sm:w-10 sm:text-sm">
                 {isToday ? 'Today' : formatDay(day.dt)}
               </span>
               <span className="text-xl shrink-0">{emoji}</span>
-              <span className="text-xs text-slate-500 font-body capitalize flex-1 truncate">
+              <span className="min-w-0 flex-1 truncate text-xs capitalize text-slate-500 font-body">
                 {weather.description}
               </span>
               {day.pop > 0.1 && (
@@ -40,7 +40,7 @@ export function ForecastStrip({ daily }: Props) {
                   {Math.round(day.pop * 100)}%
                 </span>
               )}
-              <div className="flex items-center gap-2 text-sm font-display font-semibold shrink-0">
+              <div className="flex shrink-0 items-center gap-1 text-xs font-display font-semibold sm:gap-2 sm:text-sm">
                 <span className="text-slate-500">{formatTemp(day.temp.min, units)}</span>
                 <div className="w-16 h-1 rounded-full bg-white/10 relative overflow-hidden hidden md:block">
                   <div

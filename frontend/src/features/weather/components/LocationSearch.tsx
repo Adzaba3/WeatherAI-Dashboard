@@ -60,7 +60,7 @@ export function LocationSearch() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative w-full sm:w-auto">
       <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2 focus-within:border-aurora-cyan/40 transition-colors">
         {isSearching ? (
           <Loader2 size={15} className="text-slate-500 animate-spin shrink-0" />
@@ -73,7 +73,7 @@ export function LocationSearch() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={activeLocation?.name ?? 'Search city…'}
-          className="bg-transparent text-sm text-white placeholder-slate-500 font-body outline-none w-40 md:w-56"
+          className="min-w-0 flex-1 bg-transparent text-sm text-white placeholder-slate-500 font-body outline-none sm:w-56"
         />
         {query && (
           <button onClick={clear} className="text-slate-600 hover:text-slate-400 transition-colors">
@@ -83,7 +83,7 @@ export function LocationSearch() {
       </div>
 
       {isOpen && results.length > 0 && (
-        <div className="absolute top-full mt-2 left-0 w-72 bg-night-900 border border-white/10 rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-50">
+        <div className="absolute top-full mt-2 left-0 z-50 w-full min-w-0 overflow-hidden rounded-xl border border-white/10 bg-night-900 shadow-2xl shadow-black/50 sm:w-72">
           {results.map((r, i) => (
             <button
               key={i}
